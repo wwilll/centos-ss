@@ -23,7 +23,7 @@ firewall-cmd --zone=public --add-port=23333/tcp --permanent
 firewall-cmd --zone=public --add-port=23335/tcp --permanent
 firewall-cmd --zone=public --add-port=6934/tcp --permanent
 firewall-cmd --reload
-sed -i 's|#Port 22|Port 6943|' test.sh
+sed -i 's|#Port 22|Port 6943|' /etc/ssh/sshd_config
 service sshd restart
 yum -y install wget
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
