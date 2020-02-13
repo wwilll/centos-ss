@@ -21,9 +21,12 @@ esac
 
 firewall-cmd --zone=public --add-port=23333/tcp --permanent
 firewall-cmd --zone=public --add-port=23335/tcp --permanent
+firewall-cmd --zone=public --add-port=33335/tcp --permanent
+firewall-cmd --zone=public --add-port=43337/tcp --permanent
+firewall-cmd --zone=public --add-port=38593/tcp --permanent
 firewall-cmd --zone=public --add-port=6934/tcp --permanent
 firewall-cmd --reload
-sed -i 's|#Port 22|Port 6943|' /etc/ssh/sshd_config
+sed -i 's|#Port 22|Port 6934|' /etc/ssh/sshd_config
 service sshd restart
 yum -y install wget
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
