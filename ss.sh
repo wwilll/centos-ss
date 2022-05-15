@@ -33,6 +33,10 @@ firewall-cmd --reload
 
 echo && read -e -p "input ssh port(22) you want to change: " sshport
 
+if [ -z "$sshport" ];then
+    sshport=22
+fi
+
 echo change ssh port to $sshport and reload
 sed -i "s|#Port 22|Port $sshport|" /etc/ssh/sshd_config
 
