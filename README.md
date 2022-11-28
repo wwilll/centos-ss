@@ -5,3 +5,8 @@ centos下ss一键脚本
 修改ssh端口为6934
 
 执行 wget -N --no-check-certificate https://raw.githubusercontent.com/wwilll/centos-ss/master/ss.sh && chmod +x ss.sh && ./ss.sh
+
+# init ssh
+修改ssh端口(示例22)，允许root + 密码登录
+
+执行 wget -N --no-check-certificate https://raw.githubusercontent.com/wwilll/centos-ss/master/init_ssh_config.sh && chmod +x init_ssh_config.sh && ./init_ssh_config.sh 22
