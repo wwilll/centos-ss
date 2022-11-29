@@ -10,3 +10,9 @@ centos下ss一键脚本
 修改ssh端口(示例22)，允许root + 密码登录
 
 执行 wget -N --no-check-certificate https://raw.githubusercontent.com/wwilll/centos-ss/master/init_ssh_config.sh && chmod +x init_ssh_config.sh && ./init_ssh_config.sh 22
+
+
+# init docker compose
+修改ssh端口(示例22)，允许root + 密码登录
+
+执行 wget -N --no-check-certificate https://raw.githubusercontent.com/wwilll/centos-ss/master/init_docker.sh && chmod +x init_docker.sh && ./init_docker.sh
