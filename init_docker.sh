@@ -56,11 +56,13 @@ services:
             mkdir -p /opt/conf/conf.d
             mv /etc/nginx/conf.d/* /opt/conf/conf.d
           fi
+          rm -rf /etc/nginx/conf.d
           ln -snf /opt/conf/conf.d /etc/nginx/conf.d
           if [ ! -d "/opt/conf/logs" ]; then
             mkdir -p /opt/conf/logs
             mv /var/log/nginx/* /opt/conf/logs
           fi
+          rm -rf /var/log/nginx
           ln -snf /opt/conf/logs /var/log/nginx
           if [ ! -d "/opt/conf/nginxroot" ]; then
             mkdir -p /opt/conf/nginxroot
