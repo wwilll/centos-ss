@@ -64,9 +64,16 @@ services:
           fi
           rm -rf /var/log/nginx
           ln -snf /opt/conf/logs /var/log/nginx
+          if [ ! -d "/opt/conf/html" ]; then
+            mkdir -p /opt/conf/html
+            mv /usr/share/nginx/html/* /opt/conf/html
+          fi
+          rm -rf /usr/share/nginx/html
+          ln -snf /opt/conf/html /usr/share/nginx/html
           if [ ! -d "/opt/conf/nginxroot" ]; then
             mkdir -p /opt/conf/nginxroot
           fi
+          rm -rf /nginxroot
           ln -snf /opt/conf/nginxroot /nginxroot
           nginx -t
           nginx -g 'daemon off;'
