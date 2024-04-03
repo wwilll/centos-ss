@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+docker_dir=${1:-'/root/docker_root'}
+docker_dir=$(realpath "$docker_dir") # 获取 $docker_dir 的绝对路径
+
 if ! [ -x "$(command -v docker)" ]; then
   echo 'docker is not installed, it will be installed soon'
   curl -fsSL https://get.docker.com | bash -s docker
@@ -10,14 +13,12 @@ fi
 if ! [ -x "$(command -v docker-compose)" ]; then
   echo 'docker-compose is not installed, it will be installed soon'
   if [ ! -f "./docker-compose" ]; then
-    curl -L https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-"$(uname -m)" >./docker-compose
+    curl -L https://github.com/docker/compose/releases/download/v2.26.0/docker-compose-linux-"$(uname -m)" >./docker-compose
   fi
   chmod +x ./docker-compose
   mv ./docker-compose /usr/local/bin/docker-compose
   docker-compose --version
 fi
-
-docker_dir=${1:-'/docker_root'}
 
 if [ ! -d "$docker_dir" ]; then
   mkdir -p "$docker_dir"
@@ -81,4 +82,3 @@ EOF
 fi
 
 docker-compose -f "$docker_compose_file" up -d
-
